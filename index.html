@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>luvcode</title>
+</head>
+<body style="background-color: bisque">
+    <img id="image" src="OIP-C.jpeg" alt="期待" style="width: 200px;height: 200px;justify-content: center;margin-top: 30px">
+    <p id="text" style="font-family: 'Apple Braille';font-size: larger">好不好</p>
+    <button type="button" id="button1" style="font-size: 50px" onclick="yes()" >同意</button>
+    <button type="button" id="button2" style="font-size: 50px" onclick="no()">不同意</button>
+</body>
+<script>
+    function yes(){
+        var yes = document.getElementById("image");
+        yes.src = "v2-f936708a25ba0d68b40af3358f5cc5e1_1440w.jpg";
+        var button1 = document.getElementById("button1");
+        var text = document.getElementById("text");
+        text.innerHTML = "宝宝亲亲，嘻嘻";
+        button1.hidden = true;
+        button2.hidden = true;
+    }
+    var count = 0;
+    function no(){
+        var size = 50;
+        var no = document.getElementById("image");
+        var text = document.getElementById("text");
+        var button1 = document.getElementById("button1");
+        if(count == 1){
+            text.innerHTML = "再想想呢？";
+            no.src = "v2-c02294d3e25cc76e7f1d2268ceddb5cf_1440w.jpg";
+            button1.style.setProperty("font-size",`${size+10}px`);
+            button2.style.setProperty("font-size",`${size-10}px`);
+        }
+        if (count == 2){
+            text.innerHTML = "嗯？意思是我不够霸道吗？";
+            no.src = "v2-df80772c7202265526b2205d0ca124ce_1440w.jpg";
+            button1.style.setProperty("font-size",`${size+20}px`);
+            button2.style.setProperty("font-size",`${size-20}px`);
+        }
+        if (count == 3){
+            text.innerHTML = "不想理你了！！！";
+            no.src = "1.jpg";
+            button1.style.setProperty("font-size",`${size+70}px`);
+            button2.hidden = true;
+        }
+        count++;
+    }
+</script>
+</html>
